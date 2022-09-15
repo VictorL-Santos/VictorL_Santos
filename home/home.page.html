@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Consulta CEP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="input">
+        <ion-input [(ngModel)]="cep" placeholder="Digite aqui o CEP" value={{cep}}></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size=full>
+        <ion-button class="consultabtn" (click)="getCEP()">Consultar CEP</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size=full>
+        <ion-button class="limpabtn" (click)="limpar()">Limpar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngIf="cepInfo">
+
+    <ion-item *ngIf="cepInfo.logradouro">
+      <ion-label>Logradouro: </ion-label>
+      <ion-label color="medium" text-wrap>{{cepInfo.logradouro}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="cepInfo.complemento">
+      <ion-label>Compl: </ion-label>
+      <ion-label color="medium" text-wrap>{{cepInfo.complemento}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="cepInfo.bairro">
+      <ion-label>Bairro: </ion-label>
+      <ion-label color="medium" text-wrap>{{cepInfo.bairro}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="cepInfo.localidade">
+      <ion-label>Cidade: </ion-label>
+      <ion-label color="medium" text-wrap>{{cepInfo.localidade}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="cepInfo.uf">
+      <ion-label>UF: </ion-label>
+      <ion-label color="medium" text-wrap>{{cepInfo.uf}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="cepInfo.ddd">
+      <ion-label>DDD: </ion-label>
+      <ion-label color="medium" text-wrap>{{cepInfo.ddd}}</ion-label>
+    </ion-item>
+    
+  </ion-card>
+
+</ion-content>
